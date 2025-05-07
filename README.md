@@ -359,6 +359,6 @@ To run all unit tests, use the following command:
 
 ### Postman Collection
 
-[Online Wallet Postman Collection](https://bold-rocket-3659.postman.co/workspace/New-Team-Workspace~c2b35a23-b34a-4b15-88b7-51da95f55cac/collection/9044491-41c05fa5-14bc-472e-8cff-18f6acc9c17e?action=share&creator=9044491)
+You can test the API using [Online Wallet](https://bold-rocket-3659.postman.co/workspace/New-Team-Workspace~c2b35a23-b34a-4b15-88b7-51da95f55cac/collection/9044491-41c05fa5-14bc-472e-8cff-18f6acc9c17e?action=share&creator=9044491) Postman Collection
 
 
