@@ -21,7 +21,7 @@ class BankWebhookController extends Controller
                 headers: $request->headers->all()
             );
 
-            ProcessBankWebhook::dispatchSync($payload);
+            ProcessBankWebhook::dispatch($payload);
 
             return response()->json(
                 data: ['message' => 'Webhook received successfully'],

@@ -27,7 +27,7 @@ class BankWebhookHandlerService
             }
 
             foreach (array_chunk($transactions, self::PROCESS_PATCH_SIZE) as $chunk) {
-                ProcessTransactionBatch::dispatchSync($chunk);
+                ProcessTransactionBatch::dispatch($chunk);
             }
 
         } catch (\Throwable $exception) {

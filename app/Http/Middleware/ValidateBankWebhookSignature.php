@@ -41,11 +41,8 @@ class ValidateBankWebhookSignature
     }
 
 
-    private function isValidSignature(
-        string $merchantId,
-        string $signature,
-        string $secret,
-    ): bool {
+    private function isValidSignature(string $merchantId, string $signature, string $secret): bool
+    {
 
         return hash_hmac('sha256', $merchantId, $secret)
             == hash_hmac('sha256', $merchantId, $signature);
