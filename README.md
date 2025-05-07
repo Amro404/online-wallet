@@ -96,7 +96,7 @@ X-Merchant-Id: "CLIENT-12345"
 }
 ```
 
-## 🔗 POST `/webhooks/banks/acme/transactions`
+### 🔗 POST `/webhooks/banks/acme/transactions`
 
 **Headers:**
 ```
@@ -350,5 +350,14 @@ Implements persistence for domain repositories using Eloquent ORM.
 
 ## Tests
 To run all unit tests, use the following command:
-shell
+
 ``` php artisan test ```
+
+---
+
+## 📎 API Resources
+
+### Postman Collection
+For easy API testing, download our Postman collection:
+[Online Wallet Postman Collection](https://api.postman.com/collections/9044491-41c05fa5-14bc-472e-8cff-18f6acc9c17e?access_key=PMAT-01JTNWKCZ9WR7JE1FVFCKK2GKA)
+
