@@ -10,7 +10,7 @@ This project implements an online wallet application with core functionality to:
 - Maintain accurate client balances while handling duplicate transactions
 - Ensure no webhook data is lost during processing pauses
 
-## Key Requirements
+## 🚀 Features
 
 ### Webhook Processing
 - Accepts webhook requests from multiple bank formats
@@ -346,4 +346,9 @@ Implements persistence for domain repositories using Eloquent ORM.
 - **Repositories**
     - `Eloquent*Repository.php` implementations.
 
+---
 
+## Tests
+To run all unit tests, use the following command:
+shell
+``` php artisan test ```
