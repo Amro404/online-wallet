@@ -1,6 +1,6 @@
-#  Online Wallet Application
+#  🏦 Online Wallet Application
 
-> A online wallet system for receiving and processing bank transactions via webhooks
+An online wallet application that handles incoming bank webhooks, processes transactions, and generates payment request XMLs for outgoing transfers.
 
 ## Overview
 
@@ -31,7 +31,7 @@ This project implements an online wallet application with core functionality to:
 - MySQL
 - Redis (for queue)
 
-## Installation
+## 📦 Installation
 
 1. Clone the repository
     ```
@@ -67,15 +67,13 @@ This project implements an online wallet application with core functionality to:
     php artisan queue:work
     ```
 
-## tl;dr
-
-# 📡 Webhook Endpoints
+## 📡 Webhook Endpoints
 
 This section describes the webhook endpoints supported by the application for bank transaction ingestion. These endpoints accept plain text payloads from external systems (e.g., Foodics, Acme) and parse them into structured transaction data.
 
 ---
 
-## 🔗 POST `/webhooks/banks/foodics/transactions`
+### 🔗 POST `/webhooks/banks/foodics/transactions`
 
 **Headers:**
 ```
@@ -121,9 +119,9 @@ X-Merchant-Id: "CLIENT-12345"
 }
 ```
 
-# 📡 Payment Endpoint
+## 📡 Payment Endpoint
 
-## 🔗 POST `/api/v1/payments`
+### 🔗 POST `/api/v1/payments`
 
 **Example Request Body:**
 
@@ -347,7 +345,5 @@ Implements persistence for domain repositories using Eloquent ORM.
 
 - **Repositories**
     - `Eloquent*Repository.php` implementations.
-
----
 
 
