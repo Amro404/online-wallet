@@ -136,6 +136,10 @@ X-Merchant-Id: "CLIENT-12345"
 }
 ```
 
+### In addition, any transactions that arrive while ingestion is paused are not lost. They are queued for later processing and can be resumed using the built-in Artisan command:
+``` php artisan app:process-pending-webhooks```
+
+
 ## 📡 Payment Endpoint
 
 ### 🔗 POST `/api/v1/payments`
