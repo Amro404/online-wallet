@@ -11,6 +11,7 @@ use Src\Domain\Payment\Events\PaymentRequestCreated;
 use Src\Domain\Payment\Factories\PaymentRequestFactory;
 use Src\Domain\Payment\Repositories\PaymentRepositoryInterface;
 use Src\Domain\Wallet\Enums\WalletTransactionStatus;
+use Src\Domain\Wallet\Exceptions\InsufficientFundsException;
 use Src\Domain\Wallet\Services\WalletService;
 
 
@@ -25,8 +26,16 @@ class PaymentService
 
     public function sendPaymentRequest(array $paymentData): PaymentResponse
     {
-        $paymentRequest = PaymentRequestFactory::fromRequest($paymentData);
+        $client = $this->clientService->getById($paymentData['client_id']);
 
+        $canWithdraw = $this->walletService
+            ->canWithdraw($paymentData['client'], $paymentData['amount']);
+
+        if ( ! $canWithdraw) {
+            throw new InsufficientFundsException();
+        }
+
+        $paymentRequest = PaymentRequestFactory::fromRequest($paymentData);
         $payment = $this->paymentRepository->create($paymentRequest);
 
         try {
@@ -38,8 +47,6 @@ class PaymentService
                 $paymentRequest->reference()->value(),
                 $response
             );
-
-            $client = $this->clientService->getById($paymentRequest->clientId());
 
             $this->walletService->withdraw(
                 holder: $client,

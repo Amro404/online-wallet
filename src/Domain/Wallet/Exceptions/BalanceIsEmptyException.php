@@ -2,7 +2,7 @@
 
 namespace Src\Domain\Wallet\Exceptions;
 
-class BalanceIsEmptyBaseException extends WalletBaseException
+class BalanceIsEmptyException extends WalletBaseException
 {
     protected $message = 'The wallet balance is empty.';
 

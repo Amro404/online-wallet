@@ -3,9 +3,9 @@
 namespace Src\Domain\Wallet\Services;
 
 use Src\Domain\Wallet\Contracts\WalletHolderInterface;
-use Src\Domain\Wallet\Exceptions\AmountInvalidBaseException;
-use Src\Domain\Wallet\Exceptions\BalanceIsEmptyBaseException;
-use Src\Domain\Wallet\Exceptions\InsufficientFundsBaseException;
+use Src\Domain\Wallet\Exceptions\AmountInvalidException;
+use Src\Domain\Wallet\Exceptions\BalanceIsEmptyException;
+use Src\Domain\Wallet\Exceptions\InsufficientFundsException;
 
 class ConsistencyService
 {
@@ -14,7 +14,7 @@ class ConsistencyService
     public function checkPositive(float|int $amount): void
     {
         if ($amount <= 0) {
-            throw new AmountInvalidBaseException();
+            throw new AmountInvalidException();
         }
     }
 
@@ -25,11 +25,11 @@ class ConsistencyService
         $balance = $wallet->balance ?? 0;
 
         if ($amount !== 0 && $balance == 0) {
-            throw new BalanceIsEmptyBaseException();
+            throw new BalanceIsEmptyException();
         }
 
         if (!$this->canWithdraw($balance, $amount)) {
-            throw new InsufficientFundsBaseException();
+            throw new InsufficientFundsException();
         }
     }
 

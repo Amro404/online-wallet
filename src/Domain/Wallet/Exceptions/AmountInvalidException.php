@@ -2,9 +2,9 @@
 
 namespace Src\Domain\Wallet\Exceptions;
 
-class InsufficientFundsBaseException extends WalletBaseException
+class AmountInvalidException extends  WalletBaseException
 {
-    protected $message = 'Insufficient funds in the wallet.';
+    protected $message = 'The specified amount is invalid.';
 
     public function __construct(string $message = null)
     {

@@ -241,9 +241,9 @@ src/
 │       ├── Events/
 │       │   └── WalletTransactionCreated.php
 │       ├── Exceptions/
-│       │   ├── AmountInvalidBaseException.php
-│       │   ├── BalanceIsEmptyBaseException.php
-│       │   ├── InsufficientFundsBaseException.php
+│       │   ├── AmountInvalidException.php
+│       │   ├── BalanceIsEmptyException.php
+│       │   ├── InsufficientFundsException.php
 │       │   ├── WalletBaseException.php
 │       │   └── WalletNotFoundException.php
 │       ├── Repositories/

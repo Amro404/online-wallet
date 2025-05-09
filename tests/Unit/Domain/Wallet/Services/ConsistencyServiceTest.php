@@ -7,9 +7,9 @@ use Src\Domain\Wallet\Services\WalletDomainService;
 use Tests\TestCase;
 use Src\Domain\Wallet\Services\ConsistencyService;
 use Src\Domain\Wallet\Contracts\WalletHolderInterface;
-use Src\Domain\Wallet\Exceptions\AmountInvalidBaseException;
-use Src\Domain\Wallet\Exceptions\BalanceIsEmptyBaseException;
-use Src\Domain\Wallet\Exceptions\InsufficientFundsBaseException;
+use Src\Domain\Wallet\Exceptions\AmountInvalidException;
+use Src\Domain\Wallet\Exceptions\BalanceIsEmptyException;
+use Src\Domain\Wallet\Exceptions\InsufficientFundsException;
 use Mockery;
 
 class ConsistencyServiceTest extends TestCase
@@ -42,13 +42,13 @@ class ConsistencyServiceTest extends TestCase
 
     public function test_check_positive_throws_for_zero_amount(): void
     {
-        $this->expectException(AmountInvalidBaseException::class);
+        $this->expectException(AmountInvalidException::class);
         $this->service->checkPositive(0);
     }
 
     public function test_check_positive_throws_for_negative_amount(): void
     {
-        $this->expectException(AmountInvalidBaseException::class);
+        $this->expectException(AmountInvalidException::class);
         $this->service->checkPositive(-0.01);
     }
 
@@ -79,7 +79,7 @@ class ConsistencyServiceTest extends TestCase
             ->with($walletHolder)
             ->andReturn($wallet);
 
-        $this->expectException(BalanceIsEmptyBaseException::class);
+        $this->expectException(BalanceIsEmptyException::class);
         $this->service->checkPotential($walletHolder, 50.00);
     }
 
@@ -95,7 +95,7 @@ class ConsistencyServiceTest extends TestCase
             ->with($walletHolder)
             ->andReturn($wallet);
 
-        $this->expectException(InsufficientFundsBaseException::class);
+        $this->expectException(InsufficientFundsException::class);
         $this->service->checkPotential($walletHolder, 50.00);
     }
 
@@ -110,7 +110,7 @@ class ConsistencyServiceTest extends TestCase
             ->with($walletHolder)
             ->andReturn($wallet);
 
-        $this->expectException(InsufficientFundsBaseException::class);
+        $this->expectException(InsufficientFundsException::class);
 
         $this->service->checkPotential($walletHolder, 0);
 
@@ -147,7 +147,7 @@ class ConsistencyServiceTest extends TestCase
             ->with($walletHolder)
             ->andReturn($wallet);
 
-        $this->expectException(BalanceIsEmptyBaseException::class);
+        $this->expectException(BalanceIsEmptyException::class);
         $this->service->checkPotential($walletHolder, 50.00);
     }
 

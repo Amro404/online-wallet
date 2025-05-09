@@ -10,7 +10,7 @@ use Src\Domain\Wallet\Services\ConsistencyService;
 use Src\Domain\Wallet\DataTransferObjects\WalletTransaction;
 use Src\Domain\Wallet\Enums\WalletTransactionStatus;
 use Src\Domain\Wallet\Enums\WalletTransactionType;
-use Src\Domain\Wallet\Exceptions\AmountInvalidBaseException;
+use Src\Domain\Wallet\Exceptions\AmountInvalidException;
 
 class PrepareServiceTest extends TestCase
 {
@@ -69,9 +69,9 @@ class PrepareServiceTest extends TestCase
         $this->consistencyService->shouldReceive('checkPositive')
             ->with($invalidAmount)
             ->once()
-            ->andThrow(new AmountInvalidBaseException());
+            ->andThrow(new AmountInvalidException());
 
-        $this->expectException(AmountInvalidBaseException::class);
+        $this->expectException(AmountInvalidException::class);
         $this->service->deposit($wallet, $invalidAmount, null);
     }
 
@@ -121,9 +121,9 @@ class PrepareServiceTest extends TestCase
         $this->consistencyService->shouldReceive('checkPositive')
             ->with($invalidAmount)
             ->once()
-            ->andThrow(new AmountInvalidBaseException());
+            ->andThrow(new AmountInvalidException());
 
-        $this->expectException(AmountInvalidBaseException::class);
+        $this->expectException(AmountInvalidException::class);
         $this->service->withdraw($wallet, $invalidAmount, null);
     }
 
