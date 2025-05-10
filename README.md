@@ -94,7 +94,6 @@ This section describes the webhook endpoints supported by the application for ba
 
 **Headers:**
 ```
-Content-Type: text/plain
 X-Signature: "123456"
 X-Merchant-Id: "CLIENT-12345"
 ```
@@ -117,7 +116,6 @@ X-Merchant-Id: "CLIENT-12345"
 
 **Headers:**
 ```
-Content-Type: text/plain
 X-Signature: "123456"
 X-Merchant-Id: "CLIENT-12345"
 ```
